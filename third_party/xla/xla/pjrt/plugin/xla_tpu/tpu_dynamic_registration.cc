@@ -13,19 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#ifndef XLA_BACKENDS_CPU_ONEDNN_EMITTER_H_
-#define XLA_BACKENDS_CPU_ONEDNN_EMITTER_H_
+#include "xla/pjrt/plugin/dynamic_registration.h"
+#include "xla/pjrt/plugin/plugin_names.h"
 
-#include "absl/functional/any_invocable.h"
-#include "absl/status/statusor.h"
-#include "xla/backends/cpu/onednn_fusion_graph.h"
-#include "xla/hlo/ir/hlo_computation.h"
-
-namespace xla::cpu {
-
-absl::StatusOr<absl::AnyInvocable<absl::StatusOr<OneDnnFusion>()>>
-EmitOneDnnFusionBuilder(const HloComputation* computation);
-
-}  // namespace xla::cpu
-
-#endif  // XLA_BACKENDS_CPU_ONEDNN_EMITTER_H_
+REGISTER_DYNAMIC_PJRT_PLUGIN(kTpuPjrtName, "TPU_LIBRARY_PATH")
